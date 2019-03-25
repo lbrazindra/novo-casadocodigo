@@ -29,5 +29,6 @@ public class AppWebConfiguration {
 		bundle.setDefaultEncoding("UTF-8");
 		bundle.setCacheSeconds(1);
 		return bundle;
+		//TESTE
 	}
 }
