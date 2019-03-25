@@ -73,18 +73,18 @@ public class Produto {
 		this.precos = precos;
 	}
 
-	public Calendar getReleaseDate() {
-		return dataDoRelaase;
-	}
-
-	public void setReleaseDate(Calendar releaseDate) {
-		this.dataDoRelaase = releaseDate;
-	}
-
 	@Override
 	public String toString() {
 		return "Produto [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas
 				+ ", precos=" + precos + "]";
+	}
+
+	public Calendar getDataDoRelaase() {
+		return dataDoRelaase;
+	}
+
+	public void setDataDoRelaase(Calendar dataDoRelaase) {
+		this.dataDoRelaase = dataDoRelaase;
 	}
 
 }

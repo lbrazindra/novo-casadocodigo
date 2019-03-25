@@ -41,9 +41,14 @@
 			<input type="submit" value="Enviar">
 		</div>
 		<div>
-			<label for="releaseDate">Data de lançamento</label> 
-			<input type="date" name="releaseDate" />
-			<form:errors path="releaseDate" />
+			<label for="dataDoRelaase">Data de lançamento</label>
+			<form:input type="date" path="dataDoRelaase" />
+			<form:errors path="dataDoRelaase" />
+		</div>
+		<div>
+			<label for="sumario">Sumário do livro</label>
+			<form:input type="file" path="sumario" />
+			<form:errors path="sumarioPath" />
 		</div>
 	</form:form>
 </body>
