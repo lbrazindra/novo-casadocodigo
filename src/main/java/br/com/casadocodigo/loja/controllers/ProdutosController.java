@@ -1,5 +1,6 @@
 package br.com.casadocodigo.loja.controllers;
 
+import javax.servlet.http.Part;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -35,7 +36,9 @@ public class ProdutosController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView save(@Valid Produto produto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public ModelAndView save(Part sumario, @Valid Produto produto, BindingResult bindingResult,
+			RedirectAttributes redirectAttributes) {
+		System.out.println(sumario.getName() + ";" + sumario.getHeader("content-disposition"));
 		if (bindingResult.hasErrors()) {
 			return form(produto);
 		}

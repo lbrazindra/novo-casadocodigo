@@ -1,5 +1,6 @@
 package br.com.casadocodigo.loja.modelo;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -30,8 +31,9 @@ public class Produto {
 	private int paginas;
 	@ElementCollection
 	private List<Preco> precos = new ArrayList<Preco>();
-	@DateTimeFormat(iso=ISO.DATE)
+	@DateTimeFormat(iso = ISO.DATE)
 	private Calendar dataDoRelaase;
+	private File sumario;
 
 	public Integer getId() {
 		return id;
@@ -73,18 +75,26 @@ public class Produto {
 		this.precos = precos;
 	}
 
-	@Override
-	public String toString() {
-		return "Produto [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas
-				+ ", precos=" + precos + "]";
-	}
-
 	public Calendar getDataDoRelaase() {
 		return dataDoRelaase;
 	}
 
 	public void setDataDoRelaase(Calendar dataDoRelaase) {
 		this.dataDoRelaase = dataDoRelaase;
+	}
+
+	public File getSumario() {
+		return sumario;
+	}
+
+	public void setSumario(File sumario) {
+		this.sumario = sumario;
+	}
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas
+				+ ", precos=" + precos + "]";
 	}
 
 }

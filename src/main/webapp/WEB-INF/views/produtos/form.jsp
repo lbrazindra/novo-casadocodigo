@@ -13,7 +13,7 @@
 	<s:hasBindErrors name="produto">
 	</s:hasBindErrors>
 	<form:form action="${s:mvcUrl('PC#save').build()}" method="post"
-		commandName="produto">
+		enctype="multipart/form-data" commandName="produto">
 		<div>
 			<label for="titulo">Titulo</label>
 			<form:input path="titulo" />
@@ -38,9 +38,6 @@
 			</div>
 		</c:forEach>
 		<div>
-			<input type="submit" value="Enviar">
-		</div>
-		<div>
 			<label for="dataDoRelaase">Data de lançamento</label>
 			<form:input type="date" path="dataDoRelaase" />
 			<form:errors path="dataDoRelaase" />
@@ -48,7 +45,11 @@
 		<div>
 			<label for="sumario">Sumário do livro</label>
 			<form:input type="file" path="sumario" />
-			<form:errors path="sumarioPath" />
+			<form:errors path="sumario" />
+		</div>
+		<br>
+		<div>
+			<input type="submit" value="Enviar">
 		</div>
 	</form:form>
 </body>
