@@ -14,10 +14,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.casadocodigo.loja.DAO.ProdutoDAO;
+import br.com.casadocodigo.loja.controllers.FileSaver;
 import br.com.casadocodigo.loja.controllers.HomeController;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { HomeController.class, ProdutoDAO.class })
+@ComponentScan(basePackageClasses = { HomeController.class, ProdutoDAO.class, FileSaver.class })
 public class AppWebConfiguration {
 
 	@Bean
