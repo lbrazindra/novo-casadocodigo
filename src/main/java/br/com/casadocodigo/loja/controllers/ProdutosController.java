@@ -37,15 +37,11 @@ public class ProdutosController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView save(MultipartFile sumario, @Valid Produto produto, BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
-//	 	talvez errado
-//		System.out.println(sumario.getName() + ";" + sumario.getHeader("content-disposition"));
 		if (bindingResult.hasErrors()) {
 			return form(produto);
 		}
-//		String webPath = fileSaver.write("uploaded-images", sumario);
-//		produto.setSummaryPath(webPath);
-//		talvez errado
-//		produto.save(produto);
+		String webPath = fileSaver.write("uploaded-images", sumario);
+		produto.setSummaryPath(webPath);
 		produtoDAO.save(produto);
 		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso.");
 		return new ModelAndView("redirect:produtos");
@@ -61,8 +57,8 @@ public class ProdutosController {
 	@RequestMapping("{/id}")
 	public ModelAndView show(@PathVariable("id") Integer id) {
 		ModelAndView modelAndView = new ModelAndView("/produtos/show");
-//		Produto produto = produtoDAO.find(id);
-//		modelAndView.addObject("produto", produto);
+		Produto produto = produtoDAO.find(id);
+		modelAndView.addObject("produto", produto);
 		return modelAndView;
 	}
 }

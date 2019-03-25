@@ -42,11 +42,11 @@
 			<form:input type="date" path="dataDoRelaase" />
 			<form:errors path="dataDoRelaase" />
 		</div>
-		<div>
+		<!-- <div>
 			<label for="sumario">Sumário do livro</label>
 			<form:input type="file" path="sumario" />
 			<form:errors path="sumario" />
-		</div>
+		</div> -->
 		<br>
 		<div>
 			<input type="submit" value="Enviar">
