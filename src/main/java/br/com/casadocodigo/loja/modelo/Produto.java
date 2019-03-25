@@ -34,6 +34,7 @@ public class Produto {
 	@DateTimeFormat(iso = ISO.DATE)
 	private Calendar dataDoRelaase;
 	private File sumario;
+	private String summaryPath;
 
 	public Integer getId() {
 		return id;
@@ -89,6 +90,14 @@ public class Produto {
 
 	public void setSumario(File sumario) {
 		this.sumario = sumario;
+	}
+
+	public String getSummaryPath() {
+		return summaryPath;
+	}
+
+	public void setSummaryPath(String summaryPath) {
+		this.summaryPath = summaryPath;
 	}
 
 	@Override
