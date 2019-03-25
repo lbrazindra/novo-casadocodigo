@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,7 +28,7 @@ public class ProdutosController {
 	private ProdutoDAO produtoDAO;
 
 	@RequestMapping("/form")
-	public ModelAndView form() {
+	public ModelAndView form(Produto produto) {
 		ModelAndView modelAndView = new ModelAndView("/produtos/form");
 		modelAndView.addObject("tipos", TipoDeLivro.values());
 		return modelAndView;
@@ -36,7 +37,7 @@ public class ProdutosController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView save(@Valid Produto produto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
-			return form();
+			return form(produto);
 		}
 		produtoDAO.save(produto);
 		redirectAttributes.addFlashAttribute("sucesso", "Produto cadastrado com sucesso.");
@@ -50,8 +51,8 @@ public class ProdutosController {
 		return modelAndView;
 	}
 
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.setValidator(new ProdutoValidador());
-	}
+//	@InitBinder
+//	public void initBinder(WebDataBinder binder) {
+//		binder.setValidator(new ProdutoValidador());
+//	}
 }

@@ -1,6 +1,7 @@
 package br.com.casadocodigo.loja.modelo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -9,18 +10,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotBlank
 	private String titulo;
 	@Lob
+	@NotBlank
 	private String descricao;
+	@Min(30)
 	private int paginas;
 	@ElementCollection
 	private List<Preco> precos = new ArrayList<Preco>();
+	private Calendar releaseDate;
 
 	public Integer getId() {
 		return id;
@@ -60,6 +68,14 @@ public class Produto {
 
 	public void setPrecos(List<Preco> precos) {
 		this.precos = precos;
+	}
+
+	public Calendar getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(Calendar releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
 	@Override

@@ -15,15 +15,15 @@ public class ProdutoValidador implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titulo", "field.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descricao", "field.required");
+
 		Produto produto = (Produto) target;
 
 		if (produto.getPaginas() == 0) {
-			errors.rejectValue("paginas", "field.required");
+			errors.rejectValue("pages", "field.required");
 		}
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titulo", "field.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descricao", "field.required");
-		ValidationUtils.rejectIfEmpty(errors, "paginas", "field.required");
-
+		
 	}
-
+	
 }
