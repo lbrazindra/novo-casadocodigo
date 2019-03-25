@@ -42,8 +42,8 @@ public class ProdutosController {
 		if (bindingResult.hasErrors()) {
 			return form(produto);
 		}
-		String webPath = fileSaver.write("uploaded-images", sumario);
-		produto.setSummaryPath(webPath);
+//		String webPath = fileSaver.write("uploaded-images", sumario);
+//		produto.setSummaryPath(webPath);
 //		talvez errado
 //		produto.save(produto);
 		produtoDAO.save(produto);
@@ -51,7 +51,7 @@ public class ProdutosController {
 		return new ModelAndView("redirect:produtos");
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method=RequestMethod.GET, value="/show")
 	public ModelAndView list() {
 		ModelAndView modelAndView = new ModelAndView("/produtos/list");
 		modelAndView.addObject("produtos", produtoDAO.list());
@@ -61,8 +61,8 @@ public class ProdutosController {
 	@RequestMapping("{/id}")
 	public ModelAndView show(@PathVariable("id") Integer id) {
 		ModelAndView modelAndView = new ModelAndView("/produtos/show");
-		Produto produto = produtoDAO.find(id);
-		modelAndView.addObject("produto", produto);
+//		Produto produto = produtoDAO.find(id);
+//		modelAndView.addObject("produto", produto);
 		return modelAndView;
 	}
 }

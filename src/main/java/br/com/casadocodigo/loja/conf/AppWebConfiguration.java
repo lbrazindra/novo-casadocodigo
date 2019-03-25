@@ -16,9 +16,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import br.com.casadocodigo.loja.DAO.ProdutoDAO;
 import br.com.casadocodigo.loja.controllers.FileSaver;
 import br.com.casadocodigo.loja.controllers.HomeController;
+import br.com.casadocodigo.loja.modelo.ShoppingCart;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { HomeController.class, ProdutoDAO.class, FileSaver.class })
+@ComponentScan(basePackageClasses = { HomeController.class, ProdutoDAO.class, FileSaver.class, ShoppingCart.class })
 public class AppWebConfiguration {
 
 	@Bean

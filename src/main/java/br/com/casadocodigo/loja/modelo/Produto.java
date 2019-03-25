@@ -1,6 +1,7 @@
 package br.com.casadocodigo.loja.modelo;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -104,6 +105,10 @@ public class Produto {
 	public String toString() {
 		return "Produto [id=" + id + ", titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas
 				+ ", precos=" + precos + "]";
+	}
+
+	public BigDecimal priceFor(TipoDeLivro tipoDeLivro) {
+		return precos.stream().filter(preco -> preco.getTipoDeLivro().equals(tipoDeLivro)).findFirst().get().getValor();
 	}
 
 }

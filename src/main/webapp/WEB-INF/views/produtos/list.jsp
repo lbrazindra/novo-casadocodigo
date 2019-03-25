@@ -14,10 +14,15 @@
 		</tr>
 		<c:forEach items="${produtos}" var="produto">
 			<tr>
-				<td>${produto.titulo}</td>
-				<td><c:forEach items="${produto.precos}" var="preco">
-					[${preco.valor} - ${preco.tipoDeLivro}]
-					</c:forEach></td>
+				<td><a
+					href="${spring:mvcUrl('PC#show').arg(0,produto.id).build()}">
+						${produto.titulo} </a>
+				</td>
+				<td>
+					<c:forEach items="${produto.precos}" var="price">
+						[${price.valor} - ${price.bookType}]
+					</c:forEach>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
