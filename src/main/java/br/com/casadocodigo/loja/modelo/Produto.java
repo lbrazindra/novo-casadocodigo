@@ -13,6 +13,8 @@ import javax.persistence.Lob;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 public class Produto {
@@ -28,7 +30,8 @@ public class Produto {
 	private int paginas;
 	@ElementCollection
 	private List<Preco> precos = new ArrayList<Preco>();
-	private Calendar releaseDate;
+	@DateTimeFormat(iso=ISO.DATE)
+	private Calendar dataDoRelaase;
 
 	public Integer getId() {
 		return id;
@@ -71,11 +74,11 @@ public class Produto {
 	}
 
 	public Calendar getReleaseDate() {
-		return releaseDate;
+		return dataDoRelaase;
 	}
 
 	public void setReleaseDate(Calendar releaseDate) {
-		this.releaseDate = releaseDate;
+		this.dataDoRelaase = releaseDate;
 	}
 
 	@Override

@@ -15,7 +15,7 @@
 	<form:form action="${s:mvcUrl('PC#save').build()}" method="post"
 		commandName="produto">
 		<div>
-			<label for="titulo">Titulo</label> 
+			<label for="titulo">Titulo</label>
 			<form:input path="titulo" />
 			<form:errors path="titulo" />
 		</div>
@@ -41,8 +41,8 @@
 			<input type="submit" value="Enviar">
 		</div>
 		<div>
-			<label for="releaseDate">Data de lançamento</label>
-			<form:input path="releaseDate" type="date" />
+			<label for="releaseDate">Data de lançamento</label> 
+			<input type="date" name="releaseDate" />
 			<form:errors path="releaseDate" />
 		</div>
 	</form:form>
